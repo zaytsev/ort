@@ -373,7 +373,7 @@ impl<Type: ValueTypeMarker + ?Sized> Value<Type> {
 		unsafe { transmute::<Value<Type>, Value<OtherType>>(self) }
 	}
 
-	pub(crate) fn clone_of(value: &Self) -> Self {
+	pub fn clone_of(value: &Self) -> Self {
 		Self {
 			inner: Arc::clone(&value.inner),
 			_markers: PhantomData
